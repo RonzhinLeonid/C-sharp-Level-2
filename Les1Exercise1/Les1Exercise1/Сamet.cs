@@ -14,10 +14,12 @@ namespace Les1Exercise1
         }
         public override void Draw()
         {
-            Game.Buffer.Graphics.FillEllipse(Brushes.Yellow, Pos.X, Pos.Y, Size.Width, Size.Height);
-            Game.Buffer.Graphics.FillPolygon(Brushes.Yellow, new Point[] {new Point(Pos.X + Size.Width, Pos.Y + Size.Height / 2),
-                                                                          new Point(Pos.X + 6 * Size.Width, Pos.Y - 5 * Size.Height),
-                                                                          new Point(Pos.X + Size.Width / 2, Pos.Y)});
+            Game.Buffer.Graphics.DrawImage(new Bitmap("Camet.png"), Pos.X, Pos.Y, Size.Width, Size.Height);
+
+            //Game.Buffer.Graphics.FillEllipse(Brushes.Yellow, Pos.X, Pos.Y, Size.Width, Size.Height);
+            //Game.Buffer.Graphics.FillPolygon(Brushes.Yellow, new Point[] {new Point(Pos.X + Size.Width, Pos.Y + Size.Height / 2),
+            //                                                              new Point(Pos.X + 6 * Size.Width, Pos.Y - 5 * Size.Height),
+            //                                                              new Point(Pos.X + Size.Width / 2, Pos.Y)});
         }
         public override void Update()
         {

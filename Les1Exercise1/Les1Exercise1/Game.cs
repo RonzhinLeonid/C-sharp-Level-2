@@ -27,9 +27,9 @@ namespace Les1Exercise1
                 //for (int i = _objs.Length / 2; i < _objs.Length; i++)  Game.Height
                 _objs[i] = new Star(new Point(r.Next(20, Width), i * (Height / _objs.Length) + r.Next(10)),
                                     new Point(r.Next(10, 25), 0),
-                                    new Size(5, 5));
-            _objs[_objs.Length - 2] = new Сamet(new Point(400,0), new Point(50, 50), new Size(5, 5));
-            _objs[_objs.Length - 1] = new Satellite(new Point(400, 0), new Point(15, 15), new Size(20, 20));
+                                    new Size(12, 12));
+            _objs[_objs.Length - 2] = new Сamet(new Point(400,0), new Point(50, 50), new Size(50, 50));
+            _objs[_objs.Length - 1] = new Satellite(new Point(400, 0), new Point(15, 15), new Size(70, 70));
         }
 
         private static BufferedGraphicsContext _context;
@@ -56,7 +56,7 @@ namespace Les1Exercise1
             // Связываем буфер в памяти с графическим объектом, чтобы рисовать в буфере
             Buffer = _context.Allocate(g, new Rectangle(0, 0, Width, Height));
             Load();
-            Timer timer = new Timer { Interval = 100 };
+            Timer timer = new Timer { Interval = 50 };
             timer.Start();
             timer.Tick += Timer_Tick;
         }
@@ -65,11 +65,13 @@ namespace Les1Exercise1
             // Проверяем вывод графики
             Buffer.Graphics.Clear(Color.Black);
            // Buffer.Graphics.DrawRectangle(Pens.White, new Rectangle(100, 100, 200, 200));
-            Buffer.Graphics.FillEllipse(Brushes.LightGray, new Rectangle(550, 20, 200, 200));
-            Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(570, 100, 20, 30));
-            Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(560, 105, 30, 20));
-            Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(600, 150, 40, 30));
-            Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(670, 60, 25, 30));
+            //Buffer.Graphics.FillEllipse(Brushes.LightGray, new Rectangle(550, 20, 200, 200));
+            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(570, 100, 20, 30));
+            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(560, 105, 30, 20));
+            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(600, 150, 40, 30));
+            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(670, 60, 25, 30));
+            Game.Buffer.Graphics.DrawImage(new Bitmap("Planet.png"), 550, 20, 200, 200);
+           // Game.Buffer.Graphics.DrawImage(new Bitmap("Star.png"), 300, 200, 200, 200);
             // Buffer.Render();
 
             // Buffer.Graphics.Clear(Color.Black);
