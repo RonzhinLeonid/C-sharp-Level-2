@@ -11,39 +11,43 @@ namespace Les1Exercise1
 
     static class Game
     {
-        public static BaseObject[] _objs;
-        public static void Load()
-        {
-            //_objs = new BaseObject[50];
-            //for (int i = 0; i < _objs.Length; i++)
-            //    _objs[i] = new BaseObject(new Point(100, i * 5), new Point(20 - i, 20 - i), new Size(10, 10));
-            //_objs = new BaseObject[30];
-            //for (int i = 0; i < _objs.Length; i++)
-            //    _objs[i] = new Star(new Point(600, i * 20), new Point(-i, 0), new Size(20, 20));
-            Random r = new Random(Guid.NewGuid().GetHashCode());
-            _objs = new BaseObject[40];
-            for (int i = 0; i < _objs.Length-2; i++)
-                //    _objs[i] = new BaseObject(new Point(600, i * 20), new Point(-i, -i), new Size(10, 10));
-                //for (int i = _objs.Length / 2; i < _objs.Length; i++)  Game.Height
-                _objs[i] = new Star(new Point(r.Next(20, Width), i * (Height / _objs.Length) + r.Next(10)),
-                                    new Point(r.Next(10, 25), 0),
-                                    new Size(12, 12));
-            _objs[_objs.Length - 2] = new Сamet(new Point(400,0), new Point(50, 50), new Size(50, 50));
-            _objs[_objs.Length - 1] = new Satellite(new Point(400, 0), new Point(15, 15), new Size(70, 70));
-        }
-
+        public static List<BaseObject> _objs;
         private static BufferedGraphicsContext _context;
         public static BufferedGraphics Buffer;
+        static Bitmap img;
+        /// <summary>
+        /// Метод инициализации объектов
+        /// </summary>
+        public static void Load()
+        {
+            Random r = new Random(Guid.NewGuid().GetHashCode());
+            _objs = new List<BaseObject>();
+            int countStar = 40;
+            for (int i = 0; i < countStar; i++)
+               _objs.Add(new Star(new Point(r.Next(20, Width), i * (Height / countStar) + r.Next(10)),
+                                    new Point(r.Next(10, 25), 0),
+                                    new Size(12, 12)));
+            _objs.Add(new Сamet(new Point(400,0), new Point(50, 50), new Size(50, 50)));
+            _objs.Add(new Satellite(new Point(400, 0), new Point(15, 15), new Size(70, 70)));
+        }
+
         // Свойства
         // Ширина и высота игрового поля
         public static int Width { get; set; }
         public static int Height { get; set; }
+        /// <summary>
+        /// Конструктор игры
+        /// </summary>
         static Game()
         {
+            img = new Bitmap("Planet.png");
         }
+        /// <summary>
+        /// Метод для отрисовки графики в игре
+        /// </summary>
+        /// <param name="form">Форма игры</param>
         public static void Init(Form form)
         {
-            
             // Графическое устройство для вывода графики            
             Graphics g;
             // Предоставляет доступ к главному буферу графического контекста для текущего приложения
@@ -60,30 +64,29 @@ namespace Les1Exercise1
             timer.Start();
             timer.Tick += Timer_Tick;
         }
+        /// <summary>
+        /// Метод отрисовки объектов(основной для запуска игры)
+        /// </summary>
         public static void Draw()
         {
-            // Проверяем вывод графики
-            Buffer.Graphics.Clear(Color.Black);
-           // Buffer.Graphics.DrawRectangle(Pens.White, new Rectangle(100, 100, 200, 200));
-            //Buffer.Graphics.FillEllipse(Brushes.LightGray, new Rectangle(550, 20, 200, 200));
-            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(570, 100, 20, 30));
-            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(560, 105, 30, 20));
-            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(600, 150, 40, 30));
-            //Buffer.Graphics.FillEllipse(Brushes.Gray, new Rectangle(670, 60, 25, 30));
-            Game.Buffer.Graphics.DrawImage(new Bitmap("Planet.png"), 550, 20, 200, 200);
-           // Game.Buffer.Graphics.DrawImage(new Bitmap("Star.png"), 300, 200, 200, 200);
-            // Buffer.Render();
-
-            // Buffer.Graphics.Clear(Color.Black);
-            foreach (BaseObject obj in _objs)
-                obj.Draw();
+            Buffer.Graphics.Clear(Color.Black); //задание фона
+            foreach (BaseObject obj in _objs) obj.Draw(); //отрисовка всех объектов
+            Game.Buffer.Graphics.DrawImage(img, 550, 20, 200, 200); //отрисовка фоновой планеты
             Buffer.Render();
         }
+        /// <summary>
+        /// Метода движения всех объектов
+        /// </summary>
         public static void Update()
         {
             foreach (BaseObject obj in _objs)
                 obj.Update();
         }
+        /// <summary>
+        /// Таймер
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void Timer_Tick(object sender, EventArgs e)
         {
             Draw();

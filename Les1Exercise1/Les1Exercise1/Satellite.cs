@@ -9,23 +9,28 @@ namespace Les1Exercise1
 {
     class Satellite: BaseObject
     {
+        Bitmap img;
+        /// <summary>
+        /// Конструктор Satellite
+        /// </summary>
+        /// <param name="pos">Положение</param>
+        /// <param name="dir">Скорость перемещения</param>
+        /// <param name="size">Размер</param>
         public Satellite(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
+            img = new Bitmap("Satellite.png");
         }
-
+        
+        /// <summary>
+        /// Метод отрисовки спутника
+        /// </summary>
         public override void Draw()
         {
-            Game.Buffer.Graphics.DrawImage(new Bitmap("Satellite_v2.png"), Pos.X, Pos.Y, Size.Width, Size.Height);
-            //Game.Buffer.Graphics.FillRectangle(Brushes.White, new Rectangle(Pos.X, Pos.Y, Size.Width, Size.Height));
-            //Game.Buffer.Graphics.FillRectangle(Brushes.LightBlue, new Rectangle(Pos.X + Size.Width + 5, Pos.Y + Size.Height / 4, Size.Width, Size.Height / 2));
-            //Game.Buffer.Graphics.FillRectangle(Brushes.LightBlue, new Rectangle(Pos.X - Size.Width - 5, Pos.Y + Size.Height / 4, Size.Width, Size.Height / 2));
-            //Game.Buffer.Graphics.FillPolygon(Brushes.LightBlue, new Point[] {new Point(Pos.X, Pos.Y + Size.Height / 2),
-            //                                                                 new Point(Pos.X - 5, Pos.Y + Size.Height / 4),
-            //                                                                 new Point(Pos.X - 5, Pos.Y + Size.Height / 4 + Size.Height / 2)});
-            //Game.Buffer.Graphics.FillPolygon(Brushes.LightBlue, new Point[] {new Point(Pos.X + Size.Width, Pos.Y + Size.Height / 2),
-            //                                                                 new Point(Pos.X + Size.Width + 5, Pos.Y + Size.Height / 4),
-            //                                                                 new Point(Pos.X + Size.Width + 5, Pos.Y + Size.Height / 4 + Size.Height / 2)});
+            Game.Buffer.Graphics.DrawImage(img, Pos.X, Pos.Y, Size.Width, Size.Height);
         }
+        /// <summary>
+        /// Метод описания движения спутника
+        /// </summary>
         public override void Update()
         {
             Random r = new Random(Guid.NewGuid().GetHashCode());
