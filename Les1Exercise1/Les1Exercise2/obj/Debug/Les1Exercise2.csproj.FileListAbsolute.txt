@@ -1,0 +1,9 @@
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\Les1Exercise2.csprojAssemblyReference.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\Les1Exercise2.csproj.GenerateResource.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\Les1Exercise2.csproj.CoreCompileInputs.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\bin\Debug\Les1Exercise2.exe.config
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\bin\Debug\Les1Exercise2.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\bin\Debug\Les1Exercise2.pdb
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\Les1Exercise2.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\Les1Exercise2.pdb
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\Les1Exercise2.Properties.Resources.resources
