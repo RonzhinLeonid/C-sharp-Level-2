@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Les1Exercise2
+namespace MyGame
 {
     class GameFormException: Exception
     {
         public GameFormException()
         {
-            Console.WriteLine(base.Message);
+            //Console.WriteLine(base.Message);
         }
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Les1Exercise2
+namespace MyGame
 {
+    public delegate void Message();
     abstract class BaseObject: ICollision
     {
         Random r = new Random(Guid.NewGuid().GetHashCode());

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Les1Exercise2
+namespace MyGame
 {
     class Star: BaseObject
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Les1Exercise2_1
+namespace Les2Exercise1
 {
     class Program
     {

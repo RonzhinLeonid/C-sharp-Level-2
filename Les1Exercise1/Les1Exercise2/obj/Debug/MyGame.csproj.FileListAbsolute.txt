@@ -1,0 +1,9 @@
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\MyGame.csprojAssemblyReference.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\MyGame.csproj.GenerateResource.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\MyGame.csproj.CoreCompileInputs.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\bin\Debug\MyGame.exe.config
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\bin\Debug\MyGame.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\bin\Debug\MyGame.pdb
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\MyGame.Properties.Resources.resources
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\MyGame.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les1Exercise2\obj\Debug\MyGame.pdb

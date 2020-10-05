@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Les1Exercise2
+namespace MyGame
 {
     class Bullet: BaseObject
     {
         Bitmap img;
-        Random r = new Random(Guid.NewGuid().GetHashCode());
+        //Random r = new Random(Guid.NewGuid().GetHashCode());
         /// <summary>
         /// Конструктор Bullet
         /// </summary>
@@ -33,9 +33,7 @@ namespace Les1Exercise2
         /// </summary>
         public override void Update()
         {
-            Pos.Y = Pos.Y - Dir.Y;
-            if (Pos.Y < 0) Dir.Y = -Dir.Y;
-            if (Pos.Y > Game.Height - Size.Height) Dir.Y = -Dir.Y;
+            Pos.X = Pos.X + Dir.X;
         }
     }
 }
