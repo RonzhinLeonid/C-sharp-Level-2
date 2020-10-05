@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les1Exercise1", "Les1Exercise1\Les1Exercise1.csproj", "{EA0D38FE-4919-487B-A380-AE0D88F9E189}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGame", "Les1Exercise2\MyGame.csproj", "{AECEB544-AF5C-4909-B953-7E015F9314CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les1Exercise2", "Les1Exercise2\Les1Exercise2.csproj", "{AECEB544-AF5C-4909-B953-7E015F9314CA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les2Exercise1", "Les2Exercise1", "{99184267-B455-4B58-8063-9D48FEB9036D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les1Exercise1", "Les1Exercise1", "{2217A3F7-2754-422C-8CC0-63D50E14FA3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les2Exercise1", "Les1Exercise2.1\Les2Exercise1.csproj", "{66CDD248-5807-48B3-B13F-6715122C04DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les1Exercise2", "Les1Exercise2", "{99184267-B455-4B58-8063-9D48FEB9036D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les3Exercise5", "Les3Exercise5", "{07E9B7E8-EA32-47A6-A51A-888920E73DF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les1Exercise2_1", "Les1Exercise2.1\Les1Exercise2_1.csproj", "{66CDD248-5807-48B3-B13F-6715122C04DA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asteroid", "Asteroid", "{92046E2B-AD6D-4755-854D-333BEFE388D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les3Exercise5", "Les3Exercise5\Les3Exercise5.csproj", "{EB2505FB-A404-447B-8778-1A1B2CCC42FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA0D38FE-4919-487B-A380-AE0D88F9E189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA0D38FE-4919-487B-A380-AE0D88F9E189}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA0D38FE-4919-487B-A380-AE0D88F9E189}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA0D38FE-4919-487B-A380-AE0D88F9E189}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AECEB544-AF5C-4909-B953-7E015F9314CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AECEB544-AF5C-4909-B953-7E015F9314CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AECEB544-AF5C-4909-B953-7E015F9314CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,14 +29,18 @@ Global
 		{66CDD248-5807-48B3-B13F-6715122C04DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66CDD248-5807-48B3-B13F-6715122C04DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66CDD248-5807-48B3-B13F-6715122C04DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2505FB-A404-447B-8778-1A1B2CCC42FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2505FB-A404-447B-8778-1A1B2CCC42FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2505FB-A404-447B-8778-1A1B2CCC42FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2505FB-A404-447B-8778-1A1B2CCC42FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EA0D38FE-4919-487B-A380-AE0D88F9E189} = {2217A3F7-2754-422C-8CC0-63D50E14FA3B}
-		{AECEB544-AF5C-4909-B953-7E015F9314CA} = {99184267-B455-4B58-8063-9D48FEB9036D}
+		{AECEB544-AF5C-4909-B953-7E015F9314CA} = {92046E2B-AD6D-4755-854D-333BEFE388D0}
 		{66CDD248-5807-48B3-B13F-6715122C04DA} = {99184267-B455-4B58-8063-9D48FEB9036D}
+		{EB2505FB-A404-447B-8778-1A1B2CCC42FE} = {07E9B7E8-EA32-47A6-A51A-888920E73DF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {646CEE9E-AC22-4EBD-B8ED-21BA25DF490A}

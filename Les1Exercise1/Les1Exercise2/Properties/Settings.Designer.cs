@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Les1Exercise2.Properties {
+namespace MyGame.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

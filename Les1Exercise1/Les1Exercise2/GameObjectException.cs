@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Les1Exercise2
+namespace MyGame
 {
     class GameObjectException: Exception
     {

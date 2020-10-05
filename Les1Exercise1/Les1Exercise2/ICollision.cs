@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Les1Exercise2
+namespace MyGame
 {
     /// <summary>
     /// Интерфейс закладывает поведение, по которому два объекта, поддерживающие его, могут определить, столкнулись ли они.
