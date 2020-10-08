@@ -24,6 +24,8 @@ namespace MyGame
         static int score = 0;
         private static Ship _ship = new Ship(new Point(10, 400), new Point(0, 10), new Size(50, 50));
         private static Energy _energy = new Energy(new Point(800, 400), new Point(30, 0), new Size(50, 50));
+        static int countAsteroid;
+        static int speedAsterod;
         /// <summary>
         /// Метод инициализации объектов
         /// </summary>
@@ -32,8 +34,6 @@ namespace MyGame
             Random r = new Random(Guid.NewGuid().GetHashCode());
             //набор объектов для фона
             _objs = new List<BaseObject>();
-            _asteroids = new List<BaseObject>();
-
             try
             {
                 int countStar = 60;
@@ -44,21 +44,24 @@ namespace MyGame
                 _objs.Add(new Сamet(new Point(400, 0), new Point(50, 50), new Size(50, 50)));
                 _objs.Add(new Satellite(new Point(400, 0), new Point(15, 15), new Size(70, 70)));
 
-                //Два объекта для проверки исключения. 
-                //_objs.Add(new Satellite(new Point(400, 0), new Point(150, 15), new Size(70, 70)));
-                //_objs.Add(new Star(new Point(4000, 0), new Point(10, 15), new Size(70, 70)));
             }
             catch (GameObjectException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+        }
+        /// <summary>
+        /// Метод инициализации объектов
+        /// </summary>
+        public static void LoadAsteroid(int countAsteroid, int speed)
+        {
+            Random r = new Random(Guid.NewGuid().GetHashCode());
+            _asteroids = new List<BaseObject>();
             //набор астероидов
-            int countAsteroid = 10;
-                for (int i = 0; i < countAsteroid; i++)
-                    _asteroids.Add(new Asteroid(new Point(r.Next(20, Width), i * (Height / countAsteroid) + r.Next(10)),
-                                         new Point(r.Next(10, 25), 0),
-                                         new Size(30, 30)));
+            for (int i = 0; i < countAsteroid; i++)
+                _asteroids.Add(new Asteroid(new Point(r.Next(20, Width), i * (Height / countAsteroid) + r.Next(10)),
+                                     new Point(r.Next(10 + speed, 25 + speed), 0),
+                                     new Size(30, 30)));
         }
 
         // Свойства
@@ -71,6 +74,8 @@ namespace MyGame
         static Game()
         {
             img = new Bitmap("Planet.png");
+            countAsteroid = 10;
+            speedAsterod = 0;
         }
         /// <summary>
         /// Метод для отрисовки графики в игре
@@ -108,6 +113,7 @@ namespace MyGame
             // Связываем буфер в памяти с графическим объектом, чтобы рисовать в буфере
             Buffer = _context.Allocate(g, new Rectangle(0, 0, Width, Height));
             Load();
+            LoadAsteroid(10, 0);
             form.KeyDown += Form_KeyDown;
             //Timer timer = new Timer { Interval = 50 };
             timer.Interval = 50;
@@ -164,7 +170,8 @@ namespace MyGame
                     if (_bullet[j] != null && _asteroids[i] != null && _bullet[j].Collision(_asteroids[i]))
                     {
                         System.Media.SystemSounds.Hand.Play();
-                        _asteroids[i].UpdateCollision();
+                        //_asteroids[i].UpdateCollision();
+                        _asteroids[i] = null;
                         _bullet[j] = null;
                         score++;
                         messages.AsteroidDie(Message);
@@ -187,7 +194,7 @@ namespace MyGame
                     _ship?.Die();
                     messages.ShipDie(Message);
                 }
-
+                
             }
             //Лечение корабля с соответствующим сообщением
             if (_ship.Collision(_energy))
@@ -199,7 +206,10 @@ namespace MyGame
                 _energy.UpdateCollision();
                 System.Media.SystemSounds.Hand.Play();
             }
+
+            if(_asteroids.Check()) LoadAsteroid(++countAsteroid, ++speedAsterod);
         }
+
         /// <summary>
         /// Таймер
         /// </summary>
