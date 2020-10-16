@@ -21,9 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les4Exercise2", "Les4Exerci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les4Exercise3", "Les4Exercise3\Les4Exercise3.csproj", "{82E6457A-8748-4793-A917-9CBD18468FB8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les5Exercise", "Les5Exercise", "{6E05E13B-044D-4257-91C8-A3932F86987D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les5-6", "Les5-6", "{6E05E13B-044D-4257-91C8-A3932F86987D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les5Exercise", "Les5Exercise\Les5Exercise.csproj", "{9B3193A5-27B4-46F7-A367-220CD1158F3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les5-6", "Les5Exercise\Les5-6.csproj", "{9B3193A5-27B4-46F7-A367-220CD1158F3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

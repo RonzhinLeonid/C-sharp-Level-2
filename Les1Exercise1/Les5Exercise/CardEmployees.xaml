@@ -1,0 +1,80 @@
+﻿<Window x:Class="Les5Exercise.CardEmployees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Les5Exercise"
+        mc:Ignorable="d"
+        Title="Карта сотрудника" Height="250" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Grid.Column="0"
+                    Grid.Row="0">
+            <Label x:Name="lblName" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            <Label x:Name="lblSuname" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            <Label x:Name="lblAge" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            <Label x:Name="lblSalary" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            <Label x:Name="lblPhoneNumber" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            <Label x:Name="lblDepartmentID" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Grid.Column="1"
+                    Grid.Row="0">
+            <TextBox x:Name="tbNane" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Height="23" Width="120" Margin="50,0,0,3" 
+                 TextWrapping="Wrap" Text="{Binding ElementName = lblName, 
+                                                    Path = Content,
+                                                    UpdateSourceTrigger = PropertyChanged,
+                                                    Mode = TwoWay}" />
+            <TextBox x:Name="tbSuname" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Height="23" Width="120" Margin="50,0,0,3" 
+                 TextWrapping="Wrap" Text="{Binding ElementName = lblSuname, 
+                                                    Path = Content,
+                                                    UpdateSourceTrigger = PropertyChanged,
+                                                    Mode = TwoWay}" />
+            <TextBox x:Name="tbAge" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Height="23" Width="120" Margin="50,0,0,3" 
+                 TextWrapping="Wrap" Text="{Binding ElementName = lblAge, 
+                                                    Path = Content,
+                                                    UpdateSourceTrigger = PropertyChanged,
+                                                    Mode = TwoWay}" />
+            <TextBox x:Name="tbSalary" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Height="23" Width="120" Margin="50,0,0,3" 
+                 TextWrapping="Wrap" Text="{Binding ElementName = lblSalary, 
+                                                    Path = Content,
+                                                    UpdateSourceTrigger = PropertyChanged,
+                                                    Mode = TwoWay}" />
+            <TextBox x:Name="tbPhoneNumber" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Height="23" Width="120" Margin="50,0,0,3" 
+                 TextWrapping="Wrap" Text="{Binding ElementName = lblPhoneNumber, 
+                                                    Path = Content,
+                                                    UpdateSourceTrigger = PropertyChanged,
+                                                    Mode = TwoWay}" />
+            <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" VerticalAlignment="Center"
+                  Height="23" Width="120" Margin="50,0,0,3"
+                  SelectionChanged="cbDepartment_SelectionChanged" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path = Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <Button x:Name="btnClose" Content="Отмена" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="btnClose_Click"/>
+        <Button x:Name="btnSave" Content="Сохранить" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
+    </Grid>
+</Window>

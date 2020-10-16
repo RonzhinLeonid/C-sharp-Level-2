@@ -5,30 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Les5Exercise"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="База сотрудников" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top">
-            <ListView x:Name="lvDepartmen" HorizontalAlignment="Left" VerticalAlignment="Top"  
+            <ListView x:Name="lvDepartmen" HorizontalAlignment="Stretch" VerticalAlignment="Top"  
                       RenderTransformOrigin="1.759,-1.151" 
                       FontFamily="Times New Roman" 
-                      Height="150"
-                      Margin="50,0,50,0"
+                      Height="350" Width="200"
+                      Margin="25,0,25,0" 
                       SelectionChanged="lvDepartmen_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID">
+                        <GridViewColumn Header="ID" Width="40">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding ID }" TextAlignment="Center"  Width="20"/>
+                                    <TextBlock Text="{Binding ID }" TextAlignment="Center" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Наименование">
+                        <GridViewColumn Header="Наименование" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" TextAlignment="Center"  Width="100"/>
+                                    <TextBlock Text="{Binding Name}" TextAlignment="Center"  />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -36,36 +36,51 @@
                 </ListView.View>
             </ListView>
 
-            <ListView x:Name="lvEmployees" HorizontalAlignment="Right" VerticalAlignment="Top" 
-                      Height="150" Grid.Column="1"
-                       Margin="50,0,50,0">
+            <ListView x:Name="lvEmployees" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                      Height="350" Width="500" 
+                      Grid.Column="1"
+                      Margin="25,0,25,0" MouseDoubleClick="lvEmployees_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding ID}" TextAlignment="Center"  Width="20"/>
+                                    <TextBlock Text="{Binding ID}" TextAlignment="Center"  Width="40"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Имя">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" TextAlignment="Center"  Width="50"/>
+                                    <TextBlock Text="{Binding Name}" TextAlignment="Center"  Width="70"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Фамилия">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Suname}" TextAlignment="Center"  Width="70"/>
+                                    <TextBlock Text="{Binding Suname}" TextAlignment="Center"  Width="100"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Департамент">
+                        <GridViewColumn Header="Возраст">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding DepartmentID}" TextAlignment="Center"  Width="50"/>
+                                    <TextBlock Text="{Binding Age}" TextAlignment="Center"  Width="50"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Зарплата">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Salary}" TextAlignment="Center"  Width="70"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Номер телефона">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PhoneNumber}" TextAlignment="Center"  Width="70"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -75,10 +90,9 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" 
                     HorizontalAlignment="Center" 
-                    VerticalAlignment="Center">
-            <Button Content="Добавить департамент" Width="150" Margin="10,0,10,0"/>
-            <Button Content="Добавить сотрудника" Width="150" Margin="10,0,10,0"/>
-            <Button Content="Сменить департамент" Width="150" Margin="10,0,10,0"/>
+                    VerticalAlignment="Bottom" Margin="0,0,0,25" RenderTransformOrigin="0.493,3.075">
+            <Button Content="Удалить департамент" Width="150" Margin="10,0,10,0" Click="Button_Click"/>
+            <Button x:Name="AddEmployee" Content="Добавить сотрудника" Width="150" Margin="10,0,10,0"/>
         </StackPanel>
     </Grid>
 </Window>

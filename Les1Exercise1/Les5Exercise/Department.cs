@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -8,39 +9,38 @@ using System.Threading.Tasks;
 
 namespace Les5Exercise
 {
-    class Department
+    public class Department : INotifyPropertyChanged
     {
         int id;
         string name;
         string description;
-        public int ID { get { return id; } set { id = value; } }
-        public string Name { get { return name; } set { name = value; } }
-        public string Description { set { description = value; } }
 
-        public ObservableCollection<Department> Departments { get; set; }
-        public Department()
-        {
-            Departments = new ObservableCollection<Department>();
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int ID { get; set; }
+        public string Name 
+        { 
+            get { return name; } 
+            set 
+            { 
+                name = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.name)));
+            } 
         }
-        /// <summary>
-        /// Добавление нового дупартамента.
-        /// </summary>
-        /// <param name="id">id</param>
-        /// <param name="name">Наименование департамента</param>
-        /// <param name="description">Описание департамента</param>
-        public void AddDepartment(int id, string name, string description)
+        public string Description 
         {
-            var temp = new Department()
-            {
-                ID = id,
-                Name = name,
-                Description = description
-            };
-            Departments.Add(temp);
+            get { return description; }
+            set
+            { 
+                description = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.description)));
+            } 
         }
-        
-
-     
-
+        public Department(int id, string name, string description)
+        {
+            ID = id;
+            Name = name;
+            Description = description;
+        }
     }
 }

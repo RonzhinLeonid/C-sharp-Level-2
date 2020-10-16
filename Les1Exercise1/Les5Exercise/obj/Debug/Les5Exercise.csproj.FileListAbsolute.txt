@@ -13,3 +13,5 @@ E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les5Exercise\obj\Debug\Les5Exercise.
 E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les5Exercise\obj\Debug\Les5Exercise.csproj.CoreCompileInputs.cache
 E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les5Exercise\obj\Debug\Les5Exercise.exe
 E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les5Exercise\obj\Debug\Les5Exercise.pdb
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les5Exercise\obj\Debug\CardEmployees.g.cs
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les5Exercise\obj\Debug\CardEmployees.baml

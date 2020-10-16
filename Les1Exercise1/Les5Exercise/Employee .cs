@@ -1,62 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Les5Exercise
 {
-    class Employee
+    public class Employee: INotifyPropertyChanged
     {
-        //private string name;
-        //private string suname;
-        //private string department;
+        private string name;
+        private string suname;
+        private int age;
+        private int salary;
+        private string phoneNumber;
+        private int departmentID;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Suname { get; set; }
-        public string Age { get; set; }
-        public string Salary { get; set; }
-        public string PhoneNumber { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public int DepartmentID { get; set; }
-
-        public ObservableCollection<Employee> Staff { get; set; }
-
-        public Employee()
+        public string Name
         {
-            Staff = new ObservableCollection<Employee>();
-        }
-
-        /// <summary>
-        /// Добавление нового сотрудника.
-        /// </summary>
-        /// <param name="id">id</param>
-        /// <param name="name">имя</param>
-        /// <param name="suname">фамилия</param>
-        /// <param name="departmentID">id департамента</param>
-        public void AddEmployee(int id , string name, string suname, int departmentID)
-        {
-            var temp = new Employee()
+            get { return name; }
+            set
             {
-                ID = id,
-                Name = name,
-                Suname = suname,
-                DepartmentID = departmentID
-            };
-            Staff.Add(temp);
+                name = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.name)));
+            }
         }
-
-        /// <summary>
-        /// Замена департамент у сотрудника 
-        /// </summary>
-        /// <param name="name">Имя</param>
-        /// <param name="suname">Фамилия</param>
-        /// <param name="newDepartment">Новый департамент</param>
-        public void ChangeDepartment(string name, string suname, int newDepartment)
+        public string Suname
         {
-            Staff.Single(x => x.Name == name && x.Suname == suname).DepartmentID = newDepartment;
+            get { return suname; }
+            set
+            {
+                suname = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.suname)));
+            }
+        }
+        public int Age
+        {
+            get { return age; }
+            set
+            {
+                age = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.age)));
+            }
+        }
+        public int Salary
+        {
+            get { return salary; }
+            set
+            {
+                salary = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.salary)));
+            }
+        }
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
+            set
+            {
+                phoneNumber = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.phoneNumber)));
+            }
+        }
+        public int DepartmentID
+        {
+            get { return departmentID; }
+            set
+            {
+                departmentID = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.departmentID)));
+            }
+        }
+        public Employee(int id, 
+                        string name, 
+                        string suname, 
+                        int age, 
+                        int salary,
+                        string phoneNumber,
+                        int departmentID)
+        {
+            ID = id;
+            Name = name;
+            Suname = suname;
+            Age = age;
+            Salary = salary;
+            PhoneNumber = phoneNumber;
+            DepartmentID = departmentID;
         }
     }
 }
