@@ -49,7 +49,12 @@ namespace Les5Exercise
                                             0,
                                             "000-00-00",
                                             0));
-                new CardEmployees(data.EmployeesDB.Count - 1, data).ShowDialog();
+                CardEmployees editWindow = new CardEmployees(data.EmployeesDB.Count - 1, data);
+                editWindow.ShowDialog();
+                if (editWindow.DialogResult.Value)
+                {
+                    LoadEmployyees();
+                }
             };
             lvDepartmen.ItemsSource = data.DepartmentDB;
         }
@@ -65,7 +70,7 @@ namespace Les5Exercise
         }
         /// <summary>
         /// Удаление департамента и перенос сотрудников в раздел без департамента
-        /// "без департамента" elfkbnm ytdjpvj;yj
+        /// "без департамента" удалить невозможно
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -84,8 +89,17 @@ namespace Les5Exercise
         /// <param name="e"></param>
         private void lvEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            new CardEmployees(data.EmployeesDB.IndexOf(lvEmployees.SelectedItem as Employee), data).ShowDialog();
-            
+            CardEmployees editWindow = new CardEmployees(data.EmployeesDB.IndexOf(lvEmployees.SelectedItem as Employee), data);
+            editWindow.ShowDialog();
+            if (editWindow.DialogResult.Value)
+            {
+                LoadEmployyees();
+            }
+        }
+
+        private void LoadEmployyees()
+        {
+            lvEmployees.ItemsSource = data.EmployeesDB.Where(x => x.DepartmentID == (lvDepartmen.SelectedValue as Department).ID);
         }
     }
 }
