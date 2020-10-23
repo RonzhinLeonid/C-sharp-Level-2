@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les7", "Les7", "{B2EEC13C-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les7", "Les7\Les7.csproj", "{440B659B-4387-41E3-8E88-34D15FFF0AE4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les8", "Les8", "{00E34AA7-7D0A-48A8-9AF0-B950138A62AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
