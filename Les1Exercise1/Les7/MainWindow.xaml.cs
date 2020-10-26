@@ -50,12 +50,13 @@ namespace Les7
             {
                 //Загрузка таблицы сотрудников
                 DataRowView newRow = (DataRowView)lvDepartmen.SelectedItem;
-
                 commandEmpl =
-                new SqlCommand("SELECT Id, Name, Suname, Age, Salary, PhoneNumber, DepartmentID FROM Employee Where DepartmentID =" + newRow.Row[0],
+                new SqlCommand("SELECT Id, Name, Suname, Age, Salary, PhoneNumber, DepartmentID FROM Employee Where DepartmentID = @IdDep",
                 connEmpl);
+                commandEmpl.Parameters.Add("@IdDep", SqlDbType.NVarChar, 0, newRow.Row[0].ToString());
+                commandEmpl.Parameters["@IdDep"].Value = newRow.Row[0].ToString();
                 adapterEmpl.SelectCommand = commandEmpl;
-
+                
                 dtEmpl = new DataTable();
                 adapterEmpl.Fill(dtEmpl);
                 lvEmployees.ItemsSource = dtEmpl.DefaultView;
@@ -72,8 +73,27 @@ namespace Les7
             if (lvDepartmen.SelectedIndex != 0)
             {
                 DataRowView delRow = (DataRowView)lvDepartmen.SelectedItem;
+
+                //commandEmpl =
+                //   new SqlCommand("UPDATE Employee SET Employee.DepartmentID = @DepartmentID WHERE Employee.DepartmentID = @IdDep",
+                //   connEmpl);//UPDATE Employee SET DepartmentID = 0 WHERE Employee.DepartmentID = 16
+                //commandEmpl.Parameters.Add("@DepartmentID", SqlDbType.Int, -1, "0");
+                //commandEmpl.Parameters["@DepartmentID"].Value = 0;
+                //commandEmpl.Parameters.Add("@IdDep", SqlDbType.NVarChar, 0, "IdDep");
+                //commandEmpl.Parameters["@IdDep"].Value = delRow.Row[0].ToString();
+
+                //commandEmpl.ExecuteNonQuery();
+
+                //adapterEmpl.UpdateCommand = commandEmpl;
+
+                //commandEmpl.Parameters["@IdDep"].Value = delRow.Row[0].ToString();
+                //adapterEmpl.UpdateCommand = commandEmpl;
+                adapterEmpl.Update(dtEmpl);
+
+
                 delRow.Row.Delete();
                 adapterDep.Update(dtDep);
+
             }
             //надо добавить удаление сотрудников или перенос их в департамент с индексом 0
         }
@@ -84,6 +104,43 @@ namespace Les7
         /// <param name="e"></param>
         private void lvEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            commandEmpl =
+                  new SqlCommand(@"UPDATE Employee SET Name = @Name, 
+                                                        Suneme  = @Suneme,
+                                                        Age = @Age,
+                                                        Salary = @Salary,
+                                                        PhoneNumber = @PhoneNumber,
+                                                        DepartmentID = @DepartmentID
+                                      WHERE ID = @ID",
+                  connEmpl);
+            commandEmpl.Parameters.Add("@Name", SqlDbType.NVarChar, -1, "Name");
+            commandEmpl.Parameters.Add("@Suneme", SqlDbType.NVarChar, -1, "Suneme");
+            commandEmpl.Parameters.Add("@Age", SqlDbType.Int, 0, "Age");
+            commandEmpl.Parameters.Add("@Salary", SqlDbType.Int, 0, "Salary");
+            commandEmpl.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, -1, "PhoneNumber");
+            commandEmpl.Parameters.Add("@DepartmentID", SqlDbType.Int, 0, "DepartmentID");
+            commandEmpl.Parameters.Add("@ID", SqlDbType.Int, 0, "ID");
+            adapterEmpl.UpdateCommand = commandEmpl;
+
+
+            DataRowView newRow = (DataRowView)lvEmployees.SelectedItem;
+            newRow.BeginEdit();
+
+            CardEmployees editWindow = new CardEmployees(newRow.Row, dtDep);
+            editWindow.ShowDialog();
+
+
+
+            if (editWindow.DialogResult.HasValue && editWindow.DialogResult.Value)
+            {
+                newRow.EndEdit();
+                adapterEmpl.Update(dtEmpl);
+            }
+            else
+            {
+                newRow.CancelEdit();
+            }
+
             //не реализовано
         }
 
@@ -117,7 +174,7 @@ namespace Les7
             commandDep = new SqlCommand(@"UPDATE Department SET Name = @name,
                                                          Description = @description
                                         WHERE ID = @ID", connDep);
-            commandDep.Parameters.Add("@name", SqlDbType.NVarChar, -1, "Name");
+           
             commandDep.Parameters.Add("@description", SqlDbType.NVarChar, -1, "Description");
             param = commandDep.Parameters.Add("@ID", SqlDbType.Int, 0, "ID");
             adapterDep.UpdateCommand = commandDep;
@@ -134,10 +191,22 @@ namespace Les7
             lvDepartmen.ItemsSource = dtDep.DefaultView;
 
             #region заготовка для сотрудников
+
+
             connEmpl = DBUtils.GetDBConnection();
             adapterEmpl = new SqlDataAdapter();
-            commandEmpl = new SqlCommand("DELETE FROM Employee WHERE DepartmentID = @ID", connEmpl);
+
+            
+
+            
+
+            //commandEmpl = new SqlCommand("DELETE FROM Employee WHERE DepartmentID = @ID", connEmpl);
             #endregion
+        }
+
+        private void AddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
