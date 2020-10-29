@@ -1,5 +1,5 @@
 ﻿1. Создать БД с именем lesson7
-Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RonzhinL;Integrated Security=True;Pooling=False
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RonzhinTest;Integrated Security=True;Pooling=False
 
 
 2. Создать таблицу Department

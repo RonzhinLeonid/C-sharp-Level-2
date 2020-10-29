@@ -92,7 +92,7 @@
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom" Margin="0,0,0,25" RenderTransformOrigin="0.493,3.075">
             <Button Content="Удалить департамент" Width="150" Margin="10,0,10,0" Click="Button_Click"/>
-            <Button x:Name="AddEmployee" Content="Добавить сотрудника" Width="150" Margin="10,0,10,0"/>
+            <Button x:Name="AddEmployee" Content="Добавить сотрудника" Width="150" Margin="10,0,10,0" Click="AddEmployee_Click"/>
         </StackPanel>
     </Grid>
 </Window>

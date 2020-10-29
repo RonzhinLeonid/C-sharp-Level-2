@@ -14,8 +14,8 @@ namespace LoadBD
         static void Main()
         {
             Random rnd = new Random();
-            int CountDepartment = 100;
-            int CountEmployee = 1000;
+            int CountDepartment = 20;
+            int CountEmployee = 500;
 
             // Получить объект Connection подключенный к DB.
             SqlConnection connection = DBUtils.GetDBConnection();
