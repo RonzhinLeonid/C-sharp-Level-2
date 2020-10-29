@@ -13,7 +13,7 @@ namespace LoadBD
         {
             string datasource = @"(localdb)\MSSQLLocalDB";
 
-            string database = "RonzhinL";
+            string database = "RonzhinTest";
 
             return DBSQLServerUtils.GetDBConnection(datasource, database);
         }

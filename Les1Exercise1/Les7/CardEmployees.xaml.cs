@@ -40,6 +40,13 @@ namespace Les7
             cbDepartment.SelectedIndex = index.ToArray()[0];
         }
 
+        public CardEmployees(DataTable dtDep)
+        {
+            InitializeComponent();
+            cbDepartment.ItemsSource = dtDep.DefaultView;
+            cbDepartment.SelectedIndex = 0;
+        }
+
         private void cbDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView vrow = (DataRowView)cbDepartment.SelectedItem;
