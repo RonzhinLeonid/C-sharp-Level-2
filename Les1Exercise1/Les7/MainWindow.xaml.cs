@@ -91,7 +91,7 @@ namespace Les7
                 delRow.Row.Delete();
                 adapterDep.Update(dtDep);
 
-                lvDepartmen.SelectedItem = 0;
+                lvDepartmen.SelectedIndex = 0;
                 SelectDepartment();
             }
 
