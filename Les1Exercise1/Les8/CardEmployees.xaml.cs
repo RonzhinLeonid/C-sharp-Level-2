@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Les7
+namespace Les8
 {
     /// <summary>
     /// Логика взаимодействия для CardEmployees.xaml
@@ -31,14 +31,20 @@ namespace Les7
             tbSalary.Text = resultRow["Salary"].ToString();
             tbPhoneNumber.Text = resultRow["PhoneNumber"].ToString();
             cbDepartment.ItemsSource = dtDep.DefaultView;
-            if (resultRow["DepartmentID"].ToString() != "")
-            {
-                var index = from row in dtDep.AsEnumerable()
-                            let r = row.Field<int>("Id")
-                            where r == Convert.ToInt32(resultRow["DepartmentID"])
-                            select dtDep.Rows.IndexOf(row);
+            
+             var index = from row in dtDep.AsEnumerable()
+                         let r = row.Field<int>("Id")
+                         where r == Convert.ToInt32(resultRow["DepartmentID"])
+                         select dtDep.Rows.IndexOf(row);
+
             cbDepartment.SelectedIndex = index.ToArray()[0];
-            }
+        }
+
+        public CardEmployees(DataTable dtDep)
+        {
+            InitializeComponent();
+            cbDepartment.ItemsSource = dtDep.DefaultView;
+            cbDepartment.SelectedIndex = 0;
         }
 
         private void cbDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)

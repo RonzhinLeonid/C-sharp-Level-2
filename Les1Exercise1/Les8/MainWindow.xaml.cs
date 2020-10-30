@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Les7
+namespace Les8
 {
     //Ронжин Л.
     //Изменить WPF-приложение для ведения списка сотрудников компании(из урока 5), используя связывание данных, DataGrid и ADO.NET.
@@ -80,12 +80,12 @@ namespace Les7
                 DataRowView delRow = (DataRowView)lvDepartmen.SelectedItem;
                 string expression = "DepartmentID = " + (int)delRow.Row[0];
                 var delEmpl = dtEmpl.Select(expression);
-                    foreach (var item in delEmpl)
-                    {
-                        item.BeginEdit();
-                        item["DepartmentID"] = 0;
-                        item.EndEdit();
-                    }
+                foreach (var item in delEmpl)
+                {
+                    item.BeginEdit();
+                    item["DepartmentID"] = 0;
+                    item.EndEdit();
+                }
                 adapterEmpl.Update(dtEmpl);
 
                 delRow.Row.Delete();
@@ -104,26 +104,21 @@ namespace Les7
         /// <param name="e"></param>
         private void lvEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DataRowView selRow = (DataRowView)lvEmployees.SelectedItem;
-            //int x = (int)selRow["Id"];
-            string expression = "Id = " + (int)selRow["Id"];
-            var selEmpl = dtEmpl.Select(expression);
+            DataRowView newRow = (DataRowView)lvEmployees.SelectedItem;
+            newRow.BeginEdit();
 
-            selEmpl[0].BeginEdit();
-
-            CardEmployees editWindow = new CardEmployees(selEmpl[0], dtDep);
+            CardEmployees editWindow = new CardEmployees(newRow.Row, dtDep);
             editWindow.ShowDialog();
-
 
             if (editWindow.DialogResult.HasValue && editWindow.DialogResult.Value)
             {
-                selEmpl[0].EndEdit();
+                newRow.EndEdit();
                 adapterEmpl.Update(dtEmpl);
                 SelectDepartment();
             }
             else
             {
-                selEmpl[0].CancelEdit();
+                newRow.CancelEdit();
             }
         }
 
@@ -149,8 +144,8 @@ namespace Les7
             commandDep.Parameters.Add("@description", SqlDbType.NVarChar, -1, "Description");
 
             param = commandDep.Parameters.Add("@Id", SqlDbType.Int, 0, "Id");
-            param.Direction = ParameterDirection.Output;
 
+            param.Direction = ParameterDirection.Output;
             adapterDep.InsertCommand = commandDep;
             #endregion
 
@@ -198,9 +193,8 @@ namespace Les7
             commandEmpl.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, -1, "PhoneNumber");
             commandEmpl.Parameters.Add("@DepartmentID", SqlDbType.Int, 0, "DepartmentID");
 
-            param = commandEmpl.Parameters.Add("@Id", SqlDbType.Int, 0, "Id");
-            param.Direction = ParameterDirection.Output;
-            adapterEmpl.InsertCommand = commandEmpl;
+            commandEmpl.Parameters.Add("@Id", SqlDbType.Int, 0, "Id");
+            adapterEmpl.UpdateCommand = commandEmpl;
             #endregion
 
             #region update
@@ -211,14 +205,14 @@ namespace Les7
                                                         Salary = @Salary,
                                                         PhoneNumber = @PhoneNumber,
                                                         DepartmentID = @DepartmentID
-                                      WHERE Id = @Id", connEmpl);
+                                      WHERE Id = @Id",
+                      connEmpl);
             commandEmpl.Parameters.Add("@Name", SqlDbType.NVarChar, -1, "Name");
             commandEmpl.Parameters.Add("@Suname", SqlDbType.NVarChar, -1, "Suname");
             commandEmpl.Parameters.Add("@Age", SqlDbType.Int, 0, "Age");
             commandEmpl.Parameters.Add("@Salary", SqlDbType.Int, 0, "Salary");
             commandEmpl.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, -1, "PhoneNumber");
             commandEmpl.Parameters.Add("@DepartmentID", SqlDbType.Int, 0, "DepartmentID");
-
             commandEmpl.Parameters.Add("@Id", SqlDbType.Int, 0, "Id");
             adapterEmpl.UpdateCommand = commandEmpl;
             #endregion
@@ -231,7 +225,7 @@ namespace Les7
 
             dtEmpl = new DataTable();
             adapterEmpl.Fill(dtEmpl);
-
+            
             #endregion
         }
         
@@ -242,13 +236,15 @@ namespace Les7
         /// <param name="e"></param>
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
+            dtEmpl = new DataTable();
+
             DataRow newRow = dtEmpl.NewRow();
-            CardEmployees editWindow = new CardEmployees(newRow, dtDep);
+            CardEmployees editWindow = new CardEmployees(dtDep);
             editWindow.ShowDialog();
 
             if (editWindow.DialogResult.Value)
             {
-                dtEmpl.Rows.Add(editWindow.resultRow);
+                dtDep.Rows.Add(editWindow.resultRow);
                 adapterEmpl.Update(dtEmpl);
             }
         }
