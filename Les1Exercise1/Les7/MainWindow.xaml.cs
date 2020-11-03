@@ -105,9 +105,8 @@ namespace Les7
         private void lvEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataRowView selRow = (DataRowView)lvEmployees.SelectedItem;
-            //int x = (int)selRow["Id"];
-            string expression = "Id = " + (int)selRow["Id"];
-            var selEmpl = dtEmpl.Select(expression);
+           // string expression = ;
+            var selEmpl = dtEmpl.Select("Id = " + (int)selRow["Id"]);
 
             selEmpl[0].BeginEdit();
 

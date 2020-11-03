@@ -104,21 +104,25 @@ namespace Les8
         /// <param name="e"></param>
         private void lvEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DataRowView newRow = (DataRowView)lvEmployees.SelectedItem;
-            newRow.BeginEdit();
+            DataRowView selRow = (DataRowView)lvEmployees.SelectedItem;
+            string expression = "Id = " + (int)selRow["Id"];
+            var selEmpl = dtEmpl.Select(expression);
 
-            CardEmployees editWindow = new CardEmployees(newRow.Row, dtDep);
+            selEmpl[0].BeginEdit();
+
+            CardEmployees editWindow = new CardEmployees(selEmpl[0], dtDep);
             editWindow.ShowDialog();
+
 
             if (editWindow.DialogResult.HasValue && editWindow.DialogResult.Value)
             {
-                newRow.EndEdit();
+                selEmpl[0].EndEdit();
                 adapterEmpl.Update(dtEmpl);
                 SelectDepartment();
             }
             else
             {
-                newRow.CancelEdit();
+                selEmpl[0].CancelEdit();
             }
         }
 
