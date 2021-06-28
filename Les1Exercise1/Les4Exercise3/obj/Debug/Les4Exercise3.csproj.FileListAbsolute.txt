@@ -1,0 +1,7 @@
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\bin\Debug\Les4Exercise3.exe.config
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\bin\Debug\Les4Exercise3.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\bin\Debug\Les4Exercise3.pdb
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\obj\Debug\Les4Exercise3.csprojAssemblyReference.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\obj\Debug\Les4Exercise3.csproj.CoreCompileInputs.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\obj\Debug\Les4Exercise3.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\Les4Exercise3\obj\Debug\Les4Exercise3.pdb

@@ -1,0 +1,7 @@
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\bin\Debug\LoadBD.exe.config
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\bin\Debug\LoadBD.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\bin\Debug\LoadBD.pdb
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\obj\Debug\LoadBD.csprojAssemblyReference.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\obj\Debug\LoadBD.csproj.CoreCompileInputs.cache
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\obj\Debug\LoadBD.exe
+E:\GeekBrains\C-sharp-Level-2\Les1Exercise1\LoadBD\obj\Debug\LoadBD.pdb
